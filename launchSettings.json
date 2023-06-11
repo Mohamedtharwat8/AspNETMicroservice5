@@ -10,7 +10,8 @@
         "discount.grpc": "StartDebugging",
         "ordering.api": "StartDebugging",
         "ocelotapigw": "StartDebugging",
-        "shoppingcart.aggregator": "StartDebugging"
+        "shoppingcart.aggregator": "StartDebugging",
+        "aspnetrunbasics": "StartDebugging"
       }
     }
   }

@@ -135,13 +135,7 @@ services:
     ports:
       - "8010:80"
   shoppingcart.aggregator:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "80"
-
-  shopping.aggregator:
-    container_name: shopping.aggregator
+    container_name: shoppingcart.aggregator
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ApiSettings:CatalogUrl=http://catalog.api"
@@ -153,3 +147,15 @@ services:
       - ordering.api
     ports:
       - "8005:80"
+
+ 
+  aspnetrunbasics:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
